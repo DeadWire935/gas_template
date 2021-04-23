@@ -9,6 +9,8 @@
 #include "Abilities/GameplayAbility.h"
 #include "GASCharacter.generated.h"
 
+class UBaseAttributeSet;
+
 UCLASS()
 class GASTEMPLATE_API AGASCharacter : public ACharacter, public IAbilitySystemInterface
 {
@@ -38,6 +40,37 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
 		void InitializeAbility(TSubclassOf<UGameplayAbility> AbilityToGet, int32 AbilityLevel);
 
-	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const;
+		virtual UAbilitySystemComponent* GetAbilitySystemComponent() const;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "GASCharacter")
+		const class UBaseAttributeSet* BaseAttributeSetComp;
+
+	UFUNCTION(BlueprintPure, Category = "GASCharacter")
+		void GetHealthValues(float& Health, float& MaxHealth);
+	UFUNCTION(BlueprintPure, Category = "GASCharacter")
+		void GetManaValues(float& Mana, float& MaxMana);
+	UFUNCTION(BlueprintPure, Category = "GASCharacter")
+		void GetStaminaValues(float& Stamina, float& MaxStamina);
+	UFUNCTION(BlueprintPure, Category = "GASCharacter")
+		void GetEnergyValues(float& Energy, float& MaxEnergy);
+	UFUNCTION(BlueprintPure, Category = "GASCharacter")
+		void GetPrayerValues(float& Prayer, float& MaxPrayer);
+
+	void OnHealthChangedNative(const FOnAttributeChangeData& Data);
+	void OnManaChangedNative(const FOnAttributeChangeData& Data);
+	void OnStaminaChangedNative(const FOnAttributeChangeData& Data);
+	void OnEnergyChangedNative(const FOnAttributeChangeData& Data);
+	void OnPrayerChangedNative(const FOnAttributeChangeData& Data);
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
+		void OnHealthChanged(float OldValue, float NewValue);
+	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
+		void OnManaChanged(float OldValue, float NewValue);
+	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
+		void OnStaminaChanged(float OldValue, float NewValue);
+	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
+		void OnEnergyChanged(float OldValue, float NewValue);
+	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
+		void OnPrayerChanged(float OldValue, float NewValue);
 
 };
