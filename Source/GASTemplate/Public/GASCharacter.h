@@ -56,6 +56,8 @@ public:
 	UFUNCTION(BlueprintPure, Category = "GASCharacter")
 		void GetPrayerPointsValues(float& Prayer, float& MaxPrayer);
 	UFUNCTION(BlueprintPure, Category = "GASCharacter")
+		void GetConstitutionValues(float& Constitution, float& MaxConstitution);
+	UFUNCTION(BlueprintPure, Category = "GASCharacter")
 		void GetStrengthValues(float& Strength, float& MaxStrength);
 	UFUNCTION(BlueprintPure, Category = "GASCharacter")
 		void GetArcheryValues(float& Archery, float& MaxArchery);
@@ -116,6 +118,7 @@ public:
 	void OnStaminaChangedNative(const FOnAttributeChangeData& Data);
 	void OnEnergyChangedNative(const FOnAttributeChangeData& Data);
 	void OnPrayerPointsChangedNative(const FOnAttributeChangeData& Data);
+	void OnConstitutionChangedNative(const FOnAttributeChangeData& Data);
 	void OnStrengthChangedNative(const FOnAttributeChangeData& Data);
 	void OnArcheryChangedNative(const FOnAttributeChangeData& Data);
 	void OnMagicChangedNative(const FOnAttributeChangeData& Data);
@@ -156,6 +159,8 @@ public:
 		void OnEnergyChanged(float OldValue, float NewValue);
 	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
 		void OnPrayerPointsChanged(float OldValue, float NewValue);
+	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
+		void OnConstitutionChanged(float OldValue, float NewValue);
 	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
 		void OnStrengthChanged(float OldValue, float NewValue);
 	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")

@@ -97,6 +97,19 @@ public:
 
 	//Combat Attributes
 	//
+	//Attributes For Constitution
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_Constitution, Category = "BaseAttribute")
+		FGameplayAttributeData Constitution;
+	UFUNCTION()
+		virtual void OnRep_Constitution(const FGameplayAttributeData& OldConstitution);
+	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Constitution);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_MaxConstitution, Category = "BaseAttribute")
+		FGameplayAttributeData MaxConstitution;
+	UFUNCTION()
+		virtual void OnRep_MaxConstitution(const FGameplayAttributeData& OldMaxConstitution);
+	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, MaxConstitution);
+
 	//Attributes For Strength (Controls Melee Max Damage)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_Strength, Category = "BaseAttribute")
 		FGameplayAttributeData Strength;

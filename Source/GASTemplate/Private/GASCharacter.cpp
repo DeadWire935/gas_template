@@ -26,6 +26,7 @@ void AGASCharacter::BeginPlay()
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetStaminaAttribute()).AddUObject(this, &AGASCharacter::OnStaminaChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetEnergyAttribute()).AddUObject(this, &AGASCharacter::OnEnergyChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetPrayerPointsAttribute()).AddUObject(this, &AGASCharacter::OnPrayerPointsChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetConstitutionAttribute()).AddUObject(this, &AGASCharacter::OnConstitutionChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetStrengthAttribute()).AddUObject(this, &AGASCharacter::OnStrengthChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetArcheryAttribute()).AddUObject(this, &AGASCharacter::OnArcheryChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetMagicAttribute()).AddUObject(this, &AGASCharacter::OnMagicChangedNative);
@@ -139,6 +140,12 @@ void AGASCharacter::GetPrayerPointsValues(float& Prayer, float& MaxPrayer)
 {
 	Prayer = BaseAttributeSetComp->GetPrayerPoints();
 	MaxPrayer = BaseAttributeSetComp->GetMaxPrayerPoints();
+}
+
+void AGASCharacter::GetConstitutionValues(float& Constitution, float& MaxConstitution)
+{
+	Constitution = BaseAttributeSetComp->GetConstitution();
+	MaxConstitution = BaseAttributeSetComp->GetMaxConstitution();
 }
 
 void AGASCharacter::GetStrengthValues(float& Strength, float& MaxStrength)
@@ -322,6 +329,11 @@ void AGASCharacter::OnEnergyChangedNative(const FOnAttributeChangeData& Data)
 void AGASCharacter::OnPrayerPointsChangedNative(const FOnAttributeChangeData& Data)
 {
 	OnPrayerPointsChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnConstitutionChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnConstitutionChanged(Data.OldValue, Data.NewValue);
 }
 
 void AGASCharacter::OnStrengthChangedNative(const FOnAttributeChangeData& Data)

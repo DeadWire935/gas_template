@@ -40,6 +40,10 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 		SetPrayerPoints(FMath::Clamp(GetPrayerPoints(), 0.0f, GetMaxPrayerPoints()));
 	}
 	//Combat Attributes
+	if (Data.EvaluatedData.Attribute == GetConstitutionAttribute())
+	{
+		SetConstitution(FMath::Clamp(GetConstitution(), 0.0f, GetMaxConstitution()));
+	}
 	if (Data.EvaluatedData.Attribute == GetStrengthAttribute())
 	{
 		SetStrength(FMath::Clamp(GetStrength(), 0.0f, GetMaxStrength()));
@@ -165,6 +169,8 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, MaxEnergy, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, PrayerPoints, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, MaxPrayerPoints, COND_None, REPNOTIFY_Always);
+		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, Constitution, COND_None, REPNOTIFY_Always);
+		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, MaxConstitution, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, Strength, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, MaxStrength, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, Archery, COND_None, REPNOTIFY_Always);
@@ -270,6 +276,16 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	void UBaseAttributeSet::OnRep_MaxPrayerPoints(const FGameplayAttributeData& OldMaxPrayerPoints)
 	{
 		GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MaxPrayerPoints, OldMaxPrayerPoints);
+	}
+
+	void UBaseAttributeSet::OnRep_Constitution(const FGameplayAttributeData& OldConstitution)
+	{
+		GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, Constitution, OldConstitution);
+	}
+
+	void UBaseAttributeSet::OnRep_MaxConstitution(const FGameplayAttributeData& OldMaxConstitution)
+	{
+		GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MaxConstitution, OldMaxConstitution);
 	}
 
 	void UBaseAttributeSet::OnRep_Strength(const FGameplayAttributeData& OldStrength)
