@@ -52,6 +52,46 @@ void AGASCharacter::BeginPlay()
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetArmoursmithingAttribute()).AddUObject(this, &AGASCharacter::OnArmoursmithingChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetThievingAttribute()).AddUObject(this, &AGASCharacter::OnThievingChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetWoodcuttingAttribute()).AddUObject(this, &AGASCharacter::OnWoodcuttingChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetDaggerAttribute()).AddUObject(this, &AGASCharacter::OnDaggerChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetRapierAttribute()).AddUObject(this, &AGASCharacter::OnRapierChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetWakizashiAttribute()).AddUObject(this, &AGASCharacter::OnWakizashiChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetKatanaAttribute()).AddUObject(this, &AGASCharacter::OnKatanaChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetBroadSwordAttribute()).AddUObject(this, &AGASCharacter::OnBroadSwordChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetCurvedSwordAttribute()).AddUObject(this, &AGASCharacter::OnCurvedSwordChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetLongSwordAttribute()).AddUObject(this, &AGASCharacter::OnLongSwordChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetClaymoreAttribute()).AddUObject(this, &AGASCharacter::OnClaymoreChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetSpearAttribute()).AddUObject(this, &AGASCharacter::OnSpearChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetGlaiveAttribute()).AddUObject(this, &AGASCharacter::OnGlaiveChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetHalberdAttribute()).AddUObject(this, &AGASCharacter::OnHalberdChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetPartizanAttribute()).AddUObject(this, &AGASCharacter::OnPartizanChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetPoleAxeAttribute()).AddUObject(this, &AGASCharacter::OnPoleAxeChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetNaginataAttribute()).AddUObject(this, &AGASCharacter::OnNaginataChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetUnarmedAttribute()).AddUObject(this, &AGASCharacter::OnUnarmedChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetMaceAttribute()).AddUObject(this, &AGASCharacter::OnMaceChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetFlailAttribute()).AddUObject(this, &AGASCharacter::OnFlailChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetWarHammerAttribute()).AddUObject(this, &AGASCharacter::OnWarHammerChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetBattleAxeAttribute()).AddUObject(this, &AGASCharacter::OnBattleAxeChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetQuarterstaffAttribute()).AddUObject(this, &AGASCharacter::OnQuarterstaffChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetBowAttribute()).AddUObject(this, &AGASCharacter::OnBowChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetLongbowAttribute()).AddUObject(this, &AGASCharacter::OnLongbowChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetRecurveBowAttribute()).AddUObject(this, &AGASCharacter::OnRecurveBowChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetCrossbowAttribute()).AddUObject(this, &AGASCharacter::OnCrossbowChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetArbalestAttribute()).AddUObject(this, &AGASCharacter::OnArbalestChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetThrowingKnifeAttribute()).AddUObject(this, &AGASCharacter::OnThrowingKnifeChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetThrowingAxeAttribute()).AddUObject(this, &AGASCharacter::OnThrowingAxeChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetChakramAttribute()).AddUObject(this, &AGASCharacter::OnChakramChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetJavelinAttribute()).AddUObject(this, &AGASCharacter::OnJavelinChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetWandAttribute()).AddUObject(this, &AGASCharacter::OnWandChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetStaffAttribute()).AddUObject(this, &AGASCharacter::OnStaffChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetOrbAttribute()).AddUObject(this, &AGASCharacter::OnOrbChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetTomeAttribute()).AddUObject(this, &AGASCharacter::OnTomeChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetSceptreAttribute()).AddUObject(this, &AGASCharacter::OnSceptreChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetMailAttribute()).AddUObject(this, &AGASCharacter::OnMailChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetPlateAttribute()).AddUObject(this, &AGASCharacter::OnPlateChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetFurAttribute()).AddUObject(this, &AGASCharacter::OnFurChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetLeatherAttribute()).AddUObject(this, &AGASCharacter::OnLeatherChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetClothAttribute()).AddUObject(this, &AGASCharacter::OnClothChangedNative);
+		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetSilkAttribute()).AddUObject(this, &AGASCharacter::OnSilkChangedNative);
 
 		/*	Template
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetBEEPAttribute()).AddUObject(this, &AGASCharacter::OnBEEPChangedNative);
@@ -298,6 +338,246 @@ void AGASCharacter::GetWoodcuttingValues(float& Woodcutting, float& MaxWoodcutti
 	MaxWoodcutting = BaseAttributeSetComp->GetMaxWoodcutting();
 }
 
+void AGASCharacter::GetDaggerValues(float& Dagger, float& MaxDagger)
+{
+	Dagger = BaseAttributeSetComp->GetDagger();
+	MaxDagger = BaseAttributeSetComp->GetMaxDagger();
+}
+
+void AGASCharacter::GetRapierValues(float& Rapier, float& MaxRapier)
+{
+	Rapier = BaseAttributeSetComp->GetRapier();
+	MaxRapier = BaseAttributeSetComp->GetMaxRapier();
+}
+
+void AGASCharacter::GetWakizashiValues(float& Wakizashi, float& MaxWakizashi)
+{
+	Wakizashi = BaseAttributeSetComp->GetWakizashi();
+	MaxWakizashi = BaseAttributeSetComp->GetMaxWakizashi();
+}
+
+void AGASCharacter::GetKatanaValues(float& Katana, float& MaxKatana)
+{
+	Katana = BaseAttributeSetComp->GetKatana();
+	MaxKatana = BaseAttributeSetComp->GetMaxKatana();
+}
+
+void AGASCharacter::GetBroadSwordValues(float& BroadSword, float& MaxBroadSword)
+{
+	BroadSword = BaseAttributeSetComp->GetBroadSword();
+	MaxBroadSword = BaseAttributeSetComp->GetMaxBroadSword();
+}
+
+void AGASCharacter::GetCurvedSwordValues(float& CurvedSword, float& MaxCurvedSword)
+{
+	CurvedSword = BaseAttributeSetComp->GetCurvedSword();
+	MaxCurvedSword = BaseAttributeSetComp->GetMaxCurvedSword();
+}
+
+void AGASCharacter::GetLongSwordValues(float& LongSword, float& MaxLongSword)
+{
+	LongSword = BaseAttributeSetComp->GetLongSword();
+	MaxLongSword = BaseAttributeSetComp->GetMaxLongSword();
+}
+
+void AGASCharacter::GetClaymoreValues(float& Claymore, float& MaxClaymore)
+{
+	Claymore = BaseAttributeSetComp->GetClaymore();
+	MaxClaymore = BaseAttributeSetComp->GetMaxClaymore();
+}
+
+void AGASCharacter::GetSpearValues(float& Spear, float& MaxSpear)
+{
+	Spear = BaseAttributeSetComp->GetSpear();
+	MaxSpear = BaseAttributeSetComp->GetMaxSpear();
+}
+
+void AGASCharacter::GetGlaiveValues(float& Glaive, float& MaxGlaive)
+{
+	Glaive = BaseAttributeSetComp->GetGlaive();
+	MaxGlaive = BaseAttributeSetComp->GetMaxGlaive();
+}
+
+void AGASCharacter::GetHalberdValues(float& Halberd, float& MaxHalberd)
+{
+	Halberd = BaseAttributeSetComp->GetHalberd();
+	MaxHalberd = BaseAttributeSetComp->GetMaxHalberd();
+}
+
+void AGASCharacter::GetPartizanValues(float& Partizan, float& MaxPartizan)
+{
+	Partizan = BaseAttributeSetComp->GetPartizan();
+	MaxPartizan = BaseAttributeSetComp->GetMaxPartizan();
+}
+
+void AGASCharacter::GetPoleAxeValues(float& PoleAxe, float& MaxPoleAxe)
+{
+	PoleAxe = BaseAttributeSetComp->GetPoleAxe();
+	MaxPoleAxe = BaseAttributeSetComp->GetMaxPoleAxe();
+}
+
+void AGASCharacter::GetNaginataValues(float& Naginata, float& MaxNaginata)
+{
+	Naginata = BaseAttributeSetComp->GetNaginata();
+	MaxNaginata = BaseAttributeSetComp->GetMaxNaginata();
+}
+
+void AGASCharacter::GetUnarmedValues(float& Unarmed, float& MaxUnarmed)
+{
+	Unarmed = BaseAttributeSetComp->GetUnarmed();
+	MaxUnarmed = BaseAttributeSetComp->GetMaxUnarmed();
+}
+
+void AGASCharacter::GetMaceValues(float& Mace, float& MaxMace)
+{
+	Mace = BaseAttributeSetComp->GetMace();
+	MaxMace = BaseAttributeSetComp->GetMaxMace();
+}
+
+void AGASCharacter::GetFlailValues(float& Flail, float& MaxFlail)
+{
+	Flail = BaseAttributeSetComp->GetFlail();
+	MaxFlail = BaseAttributeSetComp->GetMaxFlail();
+}
+
+void AGASCharacter::GetWarHammerValues(float& WarHammer, float& MaxWarHammer)
+{
+	WarHammer = BaseAttributeSetComp->GetWarHammer();
+	MaxWarHammer = BaseAttributeSetComp->GetMaxWarHammer();
+}
+
+void AGASCharacter::GetBattleAxeValues(float& BattleAxe, float& MaxBattleAxe)
+{
+	BattleAxe = BaseAttributeSetComp->GetBattleAxe();
+	MaxBattleAxe = BaseAttributeSetComp->GetMaxBattleAxe();
+}
+
+void AGASCharacter::GetQuarterstaffValues(float& Quarterstaff, float& MaxQuarterstaff)
+{
+	Quarterstaff = BaseAttributeSetComp->GetQuarterstaff();
+	MaxQuarterstaff = BaseAttributeSetComp->GetMaxQuarterstaff();
+}
+
+void AGASCharacter::GetBowValues(float& Bow, float& MaxBow)
+{
+	Bow = BaseAttributeSetComp->GetBow();
+	MaxBow = BaseAttributeSetComp->GetMaxBow();
+}
+
+void AGASCharacter::GetLongbowValues(float& Longbow, float& MaxLongbow)
+{
+	Longbow = BaseAttributeSetComp->GetLongbow();
+	MaxLongbow = BaseAttributeSetComp->GetMaxLongbow();
+}
+
+void AGASCharacter::GetRecurveBowValues(float& RecurveBow, float& MaxRecurveBow)
+{
+	RecurveBow = BaseAttributeSetComp->GetRecurveBow();
+	MaxRecurveBow = BaseAttributeSetComp->GetMaxRecurveBow();
+}
+
+void AGASCharacter::GetCrossbowValues(float& Crossbow, float& MaxCrossbow)
+{
+	Crossbow = BaseAttributeSetComp->GetCrossbow();
+	MaxCrossbow = BaseAttributeSetComp->GetMaxCrossbow();
+}
+
+void AGASCharacter::GetArbalestValues(float& Arbalest, float& MaxArbalest)
+{
+	Arbalest = BaseAttributeSetComp->GetArbalest();
+	MaxArbalest = BaseAttributeSetComp->GetMaxArbalest();
+}
+
+void AGASCharacter::GetThrowingKnifeValues(float& ThrowingKnife, float& MaxThrowingKnife)
+{
+	ThrowingKnife = BaseAttributeSetComp->GetThrowingKnife();
+	MaxThrowingKnife = BaseAttributeSetComp->GetMaxThrowingKnife();
+}
+
+void AGASCharacter::GetThrowingAxeValues(float& ThrowingAxe, float& MaxThrowingAxe)
+{
+	ThrowingAxe = BaseAttributeSetComp->GetThrowingAxe();
+	MaxThrowingAxe = BaseAttributeSetComp->GetMaxThrowingAxe();
+}
+
+void AGASCharacter::GetChakramValues(float& Chakram, float& MaxChakram)
+{
+	Chakram = BaseAttributeSetComp->GetChakram();
+	MaxChakram = BaseAttributeSetComp->GetMaxChakram();
+}
+
+void AGASCharacter::GetJavelinValues(float& Javelin, float& MaxJavelin)
+{
+	Javelin = BaseAttributeSetComp->GetJavelin();
+	MaxJavelin = BaseAttributeSetComp->GetMaxJavelin();
+}
+
+void AGASCharacter::GetWandValues(float& Wand, float& MaxWand)
+{
+	Wand = BaseAttributeSetComp->GetWand();
+	MaxWand = BaseAttributeSetComp->GetMaxWand();
+}
+
+void AGASCharacter::GetStaffValues(float& Staff, float& MaxStaff)
+{
+	Staff = BaseAttributeSetComp->GetStaff();
+	MaxStaff = BaseAttributeSetComp->GetMaxStaff();
+}
+
+void AGASCharacter::GetOrbValues(float& Orb, float& MaxOrb)
+{
+	Orb = BaseAttributeSetComp->GetOrb();
+	MaxOrb = BaseAttributeSetComp->GetMaxOrb();
+}
+
+void AGASCharacter::GetTomeValues(float& Tome, float& MaxTome)
+{
+	Tome = BaseAttributeSetComp->GetTome();
+	MaxTome = BaseAttributeSetComp->GetMaxTome();
+}
+
+void AGASCharacter::GetSceptreValues(float& Sceptre, float& MaxSceptre)
+{
+	Sceptre = BaseAttributeSetComp->GetSceptre();
+	MaxSceptre = BaseAttributeSetComp->GetMaxSceptre();
+}
+
+void AGASCharacter::GetMailValues(float& Mail, float& MaxMail)
+{
+	Mail = BaseAttributeSetComp->GetMail();
+	MaxMail = BaseAttributeSetComp->GetMaxMail();
+}
+
+void AGASCharacter::GetPlateValues(float& Plate, float& MaxPlate)
+{
+	Plate = BaseAttributeSetComp->GetPlate();
+	MaxPlate = BaseAttributeSetComp->GetMaxPlate();
+}
+
+void AGASCharacter::GetFurValues(float& Fur, float& MaxFur)
+{
+	Fur = BaseAttributeSetComp->GetFur();
+	MaxFur = BaseAttributeSetComp->GetMaxFur();
+}
+
+void AGASCharacter::GetLeatherValues(float& Leather, float& MaxLeather)
+{
+	Leather = BaseAttributeSetComp->GetLeather();
+	MaxLeather = BaseAttributeSetComp->GetMaxLeather();
+}
+
+void AGASCharacter::GetClothValues(float& Cloth, float& MaxCloth)
+{
+	Cloth = BaseAttributeSetComp->GetCloth();
+	MaxCloth = BaseAttributeSetComp->GetMaxCloth();
+}
+
+void AGASCharacter::GetSilkValues(float& Silk, float& MaxSilk)
+{
+	Silk = BaseAttributeSetComp->GetSilk();
+	MaxSilk = BaseAttributeSetComp->GetMaxSilk();
+}
+
 /*	Template
 void AGASCharacter::GetBEEPValues(float& BEEP, float& MaxBEEP)
 {
@@ -461,6 +741,205 @@ void AGASCharacter::OnWoodcuttingChangedNative(const FOnAttributeChangeData& Dat
 	OnWoodcuttingChanged(Data.OldValue, Data.NewValue);
 }
 
+void AGASCharacter::OnDaggerChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnDaggerChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnRapierChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnRapierChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnWakizashiChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnWakizashiChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnKatanaChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnKatanaChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnBroadSwordChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnBroadSwordChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnCurvedSwordChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnCurvedSwordChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnLongSwordChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnLongSwordChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnClaymoreChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnClaymoreChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnSpearChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnSpearChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnGlaiveChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnGlaiveChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnHalberdChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnHalberdChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnPartizanChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnPartizanChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnPoleAxeChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnPoleAxeChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnNaginataChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnNaginataChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnUnarmedChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnUnarmedChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnMaceChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnMaceChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnFlailChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnFlailChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnWarHammerChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnWarHammerChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnBattleAxeChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnBattleAxeChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnQuarterstaffChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnQuarterstaffChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnBowChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnBowChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnLongbowChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnLongbowChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnRecurveBowChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnRecurveBowChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnCrossbowChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnCrossbowChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnArbalestChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnArbalestChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnThrowingKnifeChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnThrowingKnifeChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnThrowingAxeChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnThrowingAxeChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnChakramChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnChakramChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnJavelinChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnJavelinChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnWandChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnWandChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnStaffChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnStaffChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnOrbChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnOrbChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnTomeChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnTomeChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnSceptreChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnSceptreChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnMailChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnMailChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnPlateChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnPlateChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnFurChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnFurChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnLeatherChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnLeatherChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnClothChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnClothChanged(Data.OldValue, Data.NewValue);
+}
+
+void AGASCharacter::OnSilkChangedNative(const FOnAttributeChangeData& Data)
+{
+	OnSilkChanged(Data.OldValue, Data.NewValue);
+}
 
 /*	Template
 void AGASCharacter::OnBEEPChangedNative(const FOnAttributeChangeData& Data)
