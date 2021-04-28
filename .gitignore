@@ -67,3 +67,8 @@ DerivedDataCache/*
 
 #Starter Content
 Content/StarterContent/*
+
+#Paragon Content
+Content/ParagonShinbi/**/*
+!Content/ParagonShinbi/**/*/
+!Content/ParagonShinbi/Characters/Heroes/Shinbi/Shinbi_AnimBlueprint.uasset
