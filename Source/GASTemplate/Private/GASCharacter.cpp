@@ -26,6 +26,7 @@ void AGASCharacter::BeginPlay()
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetStaminaAttribute()).AddUObject(this, &AGASCharacter::OnStaminaChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetEnergyAttribute()).AddUObject(this, &AGASCharacter::OnEnergyChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetPrayerPointsAttribute()).AddUObject(this, &AGASCharacter::OnPrayerPointsChangedNative);
+		/*
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetConstitutionAttribute()).AddUObject(this, &AGASCharacter::OnConstitutionChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetStrengthAttribute()).AddUObject(this, &AGASCharacter::OnStrengthChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetArcheryAttribute()).AddUObject(this, &AGASCharacter::OnArcheryChangedNative);
@@ -92,6 +93,7 @@ void AGASCharacter::BeginPlay()
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetLeatherAttribute()).AddUObject(this, &AGASCharacter::OnLeatherChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetClothAttribute()).AddUObject(this, &AGASCharacter::OnClothChangedNative);
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetSilkAttribute()).AddUObject(this, &AGASCharacter::OnSilkChangedNative);
+		*/
 
 		/*	Template
 		AbilitySystemComp->GetGameplayAttributeValueChangeDelegate(BaseAttributeSetComp->GetBEEPAttribute()).AddUObject(this, &AGASCharacter::OnBEEPChangedNative);
@@ -181,6 +183,7 @@ void AGASCharacter::GetPrayerPointsValues(float& Prayer, float& MaxPrayer)
 	Prayer = BaseAttributeSetComp->GetPrayerPoints();
 	MaxPrayer = BaseAttributeSetComp->GetMaxPrayerPoints();
 }
+/*
 
 void AGASCharacter::GetConstitutionValues(float& Constitution, float& MaxConstitution)
 {
@@ -577,6 +580,7 @@ void AGASCharacter::GetSilkValues(float& Silk, float& MaxSilk)
 	Silk = BaseAttributeSetComp->GetSilk();
 	MaxSilk = BaseAttributeSetComp->GetMaxSilk();
 }
+*/
 
 /*	Template
 void AGASCharacter::GetBEEPValues(float& BEEP, float& MaxBEEP)
@@ -610,6 +614,7 @@ void AGASCharacter::OnPrayerPointsChangedNative(const FOnAttributeChangeData& Da
 {
 	OnPrayerPointsChanged(Data.OldValue, Data.NewValue);
 }
+/*
 
 void AGASCharacter::OnConstitutionChangedNative(const FOnAttributeChangeData& Data)
 {
@@ -940,10 +945,101 @@ void AGASCharacter::OnSilkChangedNative(const FOnAttributeChangeData& Data)
 {
 	OnSilkChanged(Data.OldValue, Data.NewValue);
 }
+*/
 
 /*	Template
 void AGASCharacter::OnBEEPChangedNative(const FOnAttributeChangeData& Data)
 {
 	OnBEEPChanged(Data.OldValue, Data.NewValue);
+}
+*/
+
+void AGASCharacter::InitializeAbilityMulti(TArray<TSubclassOf<UGameplayAbility>> AbilitiesToAcquire, int32 AbilityLevel)
+{
+	for (TSubclassOf<UGameplayAbility> AbilityItem : AbilitiesToAcquire)
+	{
+		InitializeAbility(AbilityItem, AbilityLevel);
+	}
+}
+
+void AGASCharacter::RemoveAbilityWithTags(FGameplayTagContainer TagContainer)
+{
+	TArray<FGameplayAbilitySpec*> MatchingAbilities;
+	AbilitySystemComp->GetActivatableGameplayAbilitySpecsByAllMatchingTags(TagContainer, MatchingAbilities, true);
+	for (FGameplayAbilitySpec* Spec : MatchingAbilities)
+	{
+		AbilitySystemComp->ClearAbility(Spec->Handle);
+	}
+}
+
+void AGASCharacter::ChangeAbilityLevelWithTags(FGameplayTagContainer TagContainer, int32 NewLevel)
+{
+	TArray<FGameplayAbilitySpec*> MatchingAbility;
+	AbilitySystemComp->GetActivatableGameplayAbilitySpecsByAllMatchingTags(TagContainer, MatchingAbility, true);
+	for (FGameplayAbilitySpec* Spec : MatchingAbility)
+	{
+		Spec->Level = NewLevel;
+	}
+}
+
+void AGASCharacter::CancelAbilityWithTags(FGameplayTagContainer WithTags, FGameplayTagContainer WithoutTags)
+{
+	AbilitySystemComp->CancelAbilities(&WithTags, &WithoutTags, nullptr);
+}
+
+void AGASCharacter::AddLooseGameplayTag(FGameplayTag TagToAdd)
+{
+	GetAbilitySystemComponent()->AddLooseGameplayTag(TagToAdd);
+	GetAbilitySystemComponent()->SetTagMapCount(TagToAdd, 1);
+}
+
+void AGASCharacter::RemoveLooseGameplayTags(FGameplayTag TagsToRemove)
+{
+	GetAbilitySystemComponent()->RemoveLooseGameplayTag(TagsToRemove);
+}
+
+void AGASCharacter::ApplyGEToTargetData(const FGameplayEffectSpecHandle& GESpec, const FGameplayAbilityTargetDataHandle& TargetData)
+{
+	for (TSharedPtr<FGameplayAbilityTargetData> Data : TargetData.Data)
+	{
+		Data->ApplyGameplayEffectSpec(*GESpec.Data.Get());
+	}
+}
+
+void AGASCharacter::SetHealthValues(float NewHealth, float NewMaxHealth)
+{
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetHealthAttribute(), EGameplayModOp::Override, NewHealth);
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetMaxHealthAttribute(), EGameplayModOp::Override, NewMaxHealth);
+}
+
+void AGASCharacter::SetManaValues(float NewMana, float NewMaxMana)
+{
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetManaAttribute(), EGameplayModOp::Override, NewMana);
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetMaxManaAttribute(), EGameplayModOp::Override, NewMaxMana);
+}
+
+void AGASCharacter::SetStaminaValues(float NewStamina, float NewMaxStamina)
+{
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetStaminaAttribute(), EGameplayModOp::Override, NewStamina);
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetMaxStaminaAttribute(), EGameplayModOp::Override, NewMaxStamina);
+}
+
+void AGASCharacter::SetEnergyValues(float NewEnergy, float NewMaxEnergy)
+{
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetEnergyAttribute(), EGameplayModOp::Override, NewEnergy);
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetMaxEnergyAttribute(), EGameplayModOp::Override, NewMaxEnergy);
+}
+
+void AGASCharacter::SetPrayerPointsValues(float NewPrayerPoints, float NewMaxPrayerPoints)
+{
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetPrayerPointsAttribute(), EGameplayModOp::Override, NewPrayerPoints);
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetMaxPrayerPointsAttribute(), EGameplayModOp::Override, NewMaxPrayerPoints);
+}
+
+/*	Template
+void AGASCharacter::SetBEEPValues(float NewBEEP, float NewMaxBEEP)
+{
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetBEEPAttribute(), EGameplayModOp::Override, NewBEEP);
+	AbilitySystemComp->ApplyModToAttribute(BaseAttributeSetComp->GetMaxBEEPAttribute(), EGameplayModOp::Override, NewMaxBEEP);
 }
 */

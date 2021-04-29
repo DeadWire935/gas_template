@@ -95,6 +95,7 @@ public:
 		virtual void OnRep_MaxPrayerPoints(const FGameplayAttributeData& OldMaxPrayerPoints);
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, MaxPrayerPoints);
 
+	/**
 	//Combat Attributes
 	//
 	//Attributes For Constitution (Controls Max Health)
@@ -978,6 +979,7 @@ public:
 	UFUNCTION()
 		virtual void OnRep_MaxSilk(const FGameplayAttributeData& OldMaxSilk);
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, MaxSilk);
+	*/
 
 	/* TEMPLATE
 	//Attributes For BEEP

@@ -39,6 +39,7 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	{
 		SetPrayerPoints(FMath::Clamp(GetPrayerPoints(), 0.0f, GetMaxPrayerPoints()));
 	}
+	/*
 	//Combat Attributes
 	if (Data.EvaluatedData.Attribute == GetConstitutionAttribute())
 	{
@@ -326,6 +327,7 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	{
 		SetSilk(FMath::Clamp(GetSilk(), 0.0f, GetMaxSilk()));
 	}
+	*/
 
 	/*	TEMPLATE
 	if (Data.EvaluatedData.Attribute == GetBEEPAttribute())
@@ -349,6 +351,7 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, MaxEnergy, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, PrayerPoints, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, MaxPrayerPoints, COND_None, REPNOTIFY_Always);
+		/*
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, Constitution, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, MaxConstitution, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, Strength, COND_None, REPNOTIFY_Always);
@@ -481,6 +484,7 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, MaxCloth, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, Silk, COND_None, REPNOTIFY_Always);
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, MaxSilk, COND_None, REPNOTIFY_Always);
+		*/
 
 		/*	Template
 		DOREPLIFETIME_CONDITION_NOTIFY(UBaseAttributeSet, BEEP, COND_None, REPNOTIFY_Always);
@@ -537,6 +541,7 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	{
 		GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MaxPrayerPoints, OldMaxPrayerPoints);
 	}
+	/*
 
 	void UBaseAttributeSet::OnRep_Constitution(const FGameplayAttributeData& OldConstitution)
 	{
@@ -1197,6 +1202,7 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	{
 		GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MaxSilk, OldMaxSilk);
 	}
+	*/
 
 	/*	Template
 	void UBaseAttributeSet::OnRep_BEEP(const FGameplayAttributeData& OldBEEP)

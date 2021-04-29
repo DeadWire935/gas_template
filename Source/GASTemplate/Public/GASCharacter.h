@@ -55,6 +55,7 @@ public:
 		void GetEnergyValues(float& Energy, float& MaxEnergy);
 	UFUNCTION(BlueprintPure, Category = "GASCharacter")
 		void GetPrayerPointsValues(float& Prayer, float& MaxPrayer);
+	/*
 	UFUNCTION(BlueprintPure, Category = "GASCharacter")
 		void GetConstitutionValues(float& Constitution, float& MaxConstitution);
 	UFUNCTION(BlueprintPure, Category = "GASCharacter")
@@ -187,7 +188,7 @@ public:
 		void GetClothValues(float& Cloth, float& MaxCloth);
 	UFUNCTION(BlueprintPure, Category = "GASCharacter")
 		void GetSilkValues(float& Silk, float& MaxSilk);
-
+		*/
 	/*	Template
 	UFUNCTION(BlueprintPure, Category = "GASCharacter")
 		void GetBEEPValues(float& BEEP, float& MaxBEEP);
@@ -198,6 +199,7 @@ public:
 	void OnStaminaChangedNative(const FOnAttributeChangeData& Data);
 	void OnEnergyChangedNative(const FOnAttributeChangeData& Data);
 	void OnPrayerPointsChangedNative(const FOnAttributeChangeData& Data);
+	/*
 	void OnConstitutionChangedNative(const FOnAttributeChangeData& Data);
 	void OnStrengthChangedNative(const FOnAttributeChangeData& Data);
 	void OnArcheryChangedNative(const FOnAttributeChangeData& Data);
@@ -264,6 +266,7 @@ public:
 	void OnLeatherChangedNative(const FOnAttributeChangeData& Data);
 	void OnClothChangedNative(const FOnAttributeChangeData& Data);
 	void OnSilkChangedNative(const FOnAttributeChangeData& Data);
+	*/
 
 	/*	Template
 	void OnBEEPChangedNative(const FOnAttributeChangeData& Data);
@@ -279,6 +282,7 @@ public:
 		void OnEnergyChanged(float OldValue, float NewValue);
 	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
 		void OnPrayerPointsChanged(float OldValue, float NewValue);
+	/*
 	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
 		void OnConstitutionChanged(float OldValue, float NewValue);
 	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
@@ -411,10 +415,65 @@ public:
 		void OnClothChanged(float OldValue, float NewValue);
 	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
 		void OnSilkChanged(float OldValue, float NewValue);
+		*/
 
 	/*	Template
 	UFUNCTION(BlueprintImplementableEvent, Category = "GASCharacter")
 		void OnBEEPChanged(float OldValue, float NewValue);
 	*/
 
+	//Initialize Abilities Multi
+	UFUNCTION(BlueprintCallable, Category= "GASCharacter")
+		void InitializeAbilityMulti(TArray<TSubclassOf<UGameplayAbility>> AbilitiesToAcquire, int32 AbilityLevel);
+
+	//Remove Abilities With Tag
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void RemoveAbilityWithTags(FGameplayTagContainer TagContainer);
+
+	//Change Ability Level With Tag
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void ChangeAbilityLevelWithTags(FGameplayTagContainer TagContainer, int32 NewLevel);
+
+	//Cancel Ability With Tag
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void CancelAbilityWithTags(FGameplayTagContainer WithTags, FGameplayTagContainer WithoutTags);
+
+	//Add Loose Gameplay Tag
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void AddLooseGameplayTag(FGameplayTag TagToAdd);
+	
+	//Remove Loose Gameplay Tag
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void RemoveLooseGameplayTags(FGameplayTag TagsToRemove);
+	
+	//Apply GE to Target Data
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void ApplyGEToTargetData(const FGameplayEffectSpecHandle& GESpec, const FGameplayAbilityTargetDataHandle& TargetData);
+
+	//Modify Base Attributes
+	//Modify Health Attributes
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void SetHealthValues(float NewHealth, float NewMaxHealth);
+
+	//Modify Mana Attributes
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void SetManaValues(float NewMana, float NewMaxMana);
+
+	//Modify Stamina Attributes
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void SetStaminaValues(float NewStamina, float NewMaxStamina);
+
+	//Modify Energy Attributes
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void SetEnergyValues(float NewEnergy, float NewMaxEnergy);
+
+	//Modify PrayerPoints Attributes
+	UFUNCTION(BlueprintCallable, Category = "GASCharacter")
+		void SetPrayerPointsValues(float NewPrayerPoints, float NewMaxPrayerPoints);
+	
+	/*	Template
+	//Modify BEEP Attributes
+	UFUNCTION(BlueprintCallable, Category= "GASCharacter")
+		void SetBEEPValues(float NewBEEP, NewMaxBEEP);
+	*/
 };
