@@ -72,3 +72,4 @@ Content/StarterContent/*
 Content/ParagonShinbi/**/*
 !Content/ParagonShinbi/**/*/
 !Content/ParagonShinbi/Characters/Heroes/Shinbi/Shinbi_AnimBlueprint.uasset
+!Content/ParagonShinbi/Characters/Heroes/Shinbi/Animations/*_Montage.uasset
